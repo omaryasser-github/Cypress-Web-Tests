@@ -1,11 +1,11 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor"
-import enviroment from "../POM/enviroment"
+import enviroment from "../POM/environment"
 import items from "../POM/items"
 
 const env = new enviroment()
 const browser = new items()
 
-Given('Navigation to website store ' , () => {
+Given('Navigation to website store' , function() {
     env.dev()
 })
 
@@ -25,6 +25,6 @@ When('checkout the item' , () => {
     browser.checkoutItem()
 })
 
-Then('it navigationtes to  cart Page' , () => {
+Then('it navigates to  cart Page' , () => {
     browser.cartPage()
 })
