@@ -35,7 +35,7 @@ This testing framework provides automated validation of core web application fea
 
 ```
 SW-Testing-Cypress/
-├── cypress.config.js                # Cypress configuration
+├── cypress.config.ts                # Cypress configuration
 ├── package.json                      # Project dependencies
 ├── .gitignore                        # Git ignore file
 ├── TestPlanning.md                   # Test planning & edge cases documentation
@@ -48,6 +48,7 @@ SW-Testing-Cypress/
     │   ├── registration.cy.js        # User registration tests
     │   ├── contactUs.cy.js           # Contact form validation tests
     │   ├── addToCart.cy.js           # Shopping cart functionality tests
+    │   ├── test.feature              # BDD feature file
     │   └── spec.cy.js                # Sample/general test specifications
     │
     ├── fixtures/                     # Test data & configuration
@@ -60,11 +61,14 @@ SW-Testing-Cypress/
         ├── registrationSupport.js    # Registration test helpers
         ├── contactUsSupport.js       # Contact form test helpers
         ├── addToCartSupport.js       # Shopping cart test helpers
+        ├── step_definitions/        # Cucumber step definitions
         └── POM/                      # Page Object Model classes
             ├── contactUsPom.js       # Contact form page object
             ├── loginPom.js           # Login page object
             ├── registrationPom.js    # Registration page object
-            └── addToCartPom.js       # Shopping cart page object
+            ├── addToCartPom.js       # Shopping cart page object
+            ├── environment.js        # Environment navigation page object
+            └── items.js              # Product item interactions page object
 ```
 
 ---
@@ -95,6 +99,12 @@ SW-Testing-Cypress/
 - Cart interaction and updates
 - E-commerce workflow validation
 - Cart state management
+
+### 🧩 BDD / Cucumber Testing
+- Gherkin feature file support with `.feature` specs
+- Step definitions under `cypress/support/step_definitions`
+- Behavior-driven test scenarios for end-to-end flows
+- Integration with Cucumber preprocessor for readable automation
 
 ### 🏗️ Modular Architecture
 - **Reusable Custom Commands**: Standardized element selectors (`.email()`, `.password()`, `.firstName()`, etc.)
@@ -212,6 +222,7 @@ npx cypress run --reporter json
 | **Registration** | `registration.cy.js` | ✅ Active | Form validation, duplicate detection, data integrity |
 | **Contact Form** | `contactUs.cy.js` | ✅ Active | All required fields, message validation, submissions |
 | **Shopping Cart** | `addToCart.cy.js` | ✅ Active | Product additions, cart interactions |
+| **BDD / Feature** | `test.feature` | ✅ Active | Gherkin scenario execution with Cucumber step definitions |
 
 For detailed test planning and edge cases, refer to [TestPlanning.md](TestPlanning.md).
 

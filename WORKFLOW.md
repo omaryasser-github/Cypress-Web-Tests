@@ -8,7 +8,7 @@ A comprehensive **End-to-End (E2E) Testing Framework** built with **Cypress 15.1
 ## 🏗️ Project Structure
 
 ```
-cypress.config.js                 # Cypress configuration file
+cypress.config.ts                 # Cypress configuration file
 package.json                       # Project dependencies
 cypress/
 ├── e2e/                          # End-to-end test files
@@ -16,6 +16,7 @@ cypress/
 │   ├── registration.cy.js        # User registration tests
 │   ├── contactUs.cy.js           # Contact form submission tests
 │   ├── addToCart.cy.js           # Shopping cart functionality tests
+│   ├── test.feature              # BDD feature file
 │   └── spec.cy.js                # General/sample test specifications
 ├── fixtures/                      # Test data storage
 │   └── example.json              # Test data and URL configurations
@@ -26,11 +27,14 @@ cypress/
     ├── registrationSupport.js    # Registration-specific helpers
     ├── contactUsSupport.js       # Contact form helper functions
     ├── addToCartSupport.js       # Shopping cart helper functions
+    ├── step_definitions/         # Cucumber step definitions
     └── POM/                      # Page Object Model classes
         ├── contactUsPom.js       # Contact form page object
         ├── loginPom.js           # Login page object
         ├── registrationPom.js    # Registration page object
-        └── addToCartPom.js       # Shopping cart page object
+        ├── addToCartPom.js       # Shopping cart page object
+        ├── environment.js        # Environment navigation page object
+        └── items.js              # Product item interactions page object
 ```
 
 ---
@@ -61,7 +65,13 @@ cypress/
 - ✅ Cart interaction testing
 - ✅ E-commerce flow validation
 
-### 5. **Custom Commands Architecture**
+### 5. **BDD / Cucumber Testing**
+- ✅ Gherkin `.feature` support for behavior-driven workflows
+- ✅ Step definitions in `cypress/support/step_definitions`
+- ✅ BDD-style scenarios for cart and checkout flows
+- ✅ Integration with Cypress Cucumber preprocessor
+
+### 6. **Custom Commands Architecture**
 - ✅ Reusable element selectors (`.email()`, `.password()`, `.firstName()`, etc.)
 - ✅ Support files for feature-specific operations
 - ✅ Modular command organization
