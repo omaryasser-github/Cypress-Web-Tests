@@ -1,3 +1,7 @@
+import AddToCartPom from "../support/POM/addToCartPom"
+
+const cart = new AddToCartPom()
+
 describe("Shopping Cart test", () => {
     before(function () {
         cy.fixture("example").then(function (data) {
@@ -6,14 +10,13 @@ describe("Shopping Cart test", () => {
     })
 
     beforeEach(function () {
-        cy.visit(data.productURL)
-        cy.title().should('include', 'Practice Software Testing')
+        cart.navigateToProductsPage()
     })
 
     it("1- Add product to cart successfully", function () {
         // cy.visit("https://practicesoftwaretesting.com/")
-        cy.contains(" Combination Pliers").click()
+        cart.selectProduct(" Combination Pliers")
         cy.title().should('include', 'Combination Pliers - Practice Software Testing - Toolshop - v5.0')
-        cy.get('#btn-add-to-cart').click()
+        cart.addProductToCart()
     })
 })
