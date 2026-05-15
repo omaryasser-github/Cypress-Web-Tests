@@ -11,9 +11,9 @@ describe("Shopping Cart test", () => {
     })
 
     it("1- Add product to cart successfully", function () {
-        cy.visit("https://practicesoftwaretesting.com/")
+        // cy.visit("https://practicesoftwaretesting.com/")
         cy.contains(" Combination Pliers").click()
-        cy.title().should('include','Combination Pliers - Practice Software Testing - Toolshop - v5.0')
+        cy.title().should('include', 'Combination Pliers - Practice Software Testing - Toolshop - v5.0')
         cy.get('#btn-add-to-cart').click()
     })
 })

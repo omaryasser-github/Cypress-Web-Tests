@@ -2,7 +2,8 @@ describe("My First Test", () => {
 
   it("Visit homepage", () => {
 
-    cy.visit("https://practicesoftwaretesting.com/")
+    cy.visit("https://www.saucedemo.com/")
+    //  cy.visit("https://practicesoftwaretesting.com/")
 
     // cy.contains("Practice Software Testing").should("exist")
     cy.url().should("include", "practicesoftwaretesting")

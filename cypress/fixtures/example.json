@@ -2,14 +2,13 @@
   "contactusURL": "https://practicesoftwaretesting.com/contact",
   "contactTitle": "Contact Us - Practice Software Testing - Toolshop - v5.0",
   "firstName": "Omar",
-  "lastName" : "Yasser",
-  "email":"omartest@gmail.com",
+  "lastName": "Yasser",
+  "email": "omartest@gmail.com",
   "subject": "warranty",
   "message": "This is a test message for the contact form in valid test case ahmed is typing",
   "message1": "This is a test",
   "longMessage": "This is a very long test message that is intentionally written to exceed the maximum allowed character limit for the message field in the contact form. We are testing whether the system properly validates the length of the input provided by the user and displays an appropriate error message when the text goes beyond the accepted limit. This test case is designed to check the robustness of the application and ensure that it handles edge cases gracefully without crashing or accepting invalid data that could potentially cause issues on the backend or database level of the system.",
 
-  
   "registerURL": "https://practicesoftwaretesting.com/auth/register",
   "registerTitle": "Register - Practice Software Testing - Toolshop - v5.0",
   "dob": "2000-01-01",
@@ -24,13 +23,17 @@
 
   "NewregisterEmail": "newOmartest122121@gmail.com",
   "futureDob": "2099-01-01",
-  
-  "cityInNumbers":"11222112",
-  "dofInLetters":"aaaa-aa-aa",
-  "stateInNumbers":"11213412",
-  "weakPass":"Test1@",
-  
-  "loginUrl":"https://practicesoftwaretesting.com/auth/login",
-  "loginTitle":"Login - Practice Software Testing - Toolshop - v5.0"
+
+  "cityInNumbers": "11222112",
+  "dofInLetters": "aaaa-aa-aa",
+  "stateInNumbers": "11213412",
+  "weakPass": "Test1@",
+
+  "loginUrl": "https://practicesoftwaretesting.com/auth/login",
+  "loginTitle": "Login - Practice Software Testing - Toolshop - v5.0",
+  "userName": "standard_user",
+  "passwordNew": "secret_sauce",
+
+  "productURL": "https://practicesoftwaretesting.com/" 
   
 }
