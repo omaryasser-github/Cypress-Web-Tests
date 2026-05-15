@@ -35,6 +35,8 @@ This testing framework provides automated validation of core web application fea
 
 ```
 SW-Testing-Cypress/
+├── .github/workflows/              # CI/CD Pipeline configurations
+│   └── main.yml                      # GitHub Actions workflow
 ├── cypress.config.ts                # Cypress configuration
 ├── package.json                      # Project dependencies
 ├── .gitignore                        # Git ignore file
@@ -74,6 +76,32 @@ SW-Testing-Cypress/
 ---
 
 ## ✨ Features
+
+- **Automated CI/CD Pipeline**: Integrated with GitHub Actions for automated test execution on every push/PR.
+- **Artifact Management**: Automatic upload of screenshots and videos upon test failure in CI.
+- **BDD / Cucumber Support**: Integrated Gherkin syntax for business-readable test scenarios.
+- **Page Object Model (POM)**: Robust architecture for maintainable and reusable test code.
+- **Custom Commands**: Specialized selection and interaction helpers.
+- **Centralized Data**: Fixture-driven test data management.
+
+---
+
+## 🚀 Continuous Integration (GitHub Actions)
+
+The project includes a fully configured CI pipeline that runs automatically in the cloud.
+
+### Workflow Steps:
+1. **Trigger**: Every push or Pull Request to the `main` branch.
+2. **Environment**: Runs on `ubuntu-latest`.
+3. **Execution**: Headless execution of all Cypress tests using `npm run cy:run`.
+4. **Reporting**: 
+   - **Screenshots**: Captured and uploaded on test failure (7-day retention).
+   - **Videos**: Captured and uploaded for every run (7-day retention).
+   - **Cucumber Reports**: JSON/HTML reports uploaded as artifacts.
+
+To view results, navigate to the **Actions** tab in your GitHub repository.
+
+---
 
 ### 🔐 Authentication Testing
 - Valid/invalid login credentials validation
@@ -186,14 +214,12 @@ npx cypress --version
 
 ### Open Cypress Test Runner
 ```bash
-npm run cypress:open
-# or
-npx cypress open
+npm run cy:open
 ```
 
 ### Run All Tests in Headless Mode
 ```bash
-npx cypress run
+npm run cy:run
 ```
 
 ### Run Specific Test File
