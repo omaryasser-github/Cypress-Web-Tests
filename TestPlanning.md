@@ -182,3 +182,42 @@ Before marking a feature's test suite as complete:
 ---
 
 *Test Planning Document - Cypress E2E Testing Framework v7th Edition*
+
+---
+
+## 🚀 CI PIPELINE ARCHITECTURE (PLANNING)
+
+### 1. Workflow Objective
+Automate the execution of the entire test suite on every **Pull Request** and **Push to Main** to ensure no regressions are introduced.
+
+### 2. Pipeline Stages
+
+#### **Stage A: Static Analysis & Setup (Fast Failure)**
+- **Job**: `lint_and_setup`
+- **Actions**: 
+  - Setup Node.js (v18 or v20).
+  - Install dependencies with `npm ci` (using cache for `node_modules`).
+  - Run `tsc` (TypeScript compiler) to check for type errors.
+  - *Goal*: Catch syntax errors before starting expensive UI tests.
+
+#### **Stage B: Cypress Execution**
+- **Job**: `cypress_run`
+- **Actions**:
+  - Use `cypress-io/github-action`.
+  - **Caching**: Cache the Cypress Binary to save ~1-2 minutes per run.
+  - **Browsers**: Run in `headless` Chrome.
+  - **Artifacts**: Upload `cypress/screenshots` and `cypress/videos` **only on failure**.
+
+#### **Stage C: Reporting**
+- **Job**: `generate_report`
+- **Actions**:
+  - Aggregate JSON results from the Cucumber preprocessor.
+  - Generate a `cucumber-report.html`.
+  - Upload report as a GitHub artifact or deploy to GitHub Pages.
+
+### 3. Technical Prerequisites
+- Add `scripts` to `package.json`:
+  - `"cy:run": "cypress run"`
+  - `"cy:open": "cypress open"`
+- Define environment variables in GitHub Secrets if needed.
+
