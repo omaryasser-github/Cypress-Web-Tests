@@ -59,7 +59,12 @@ SW-Testing-Cypress/
         ├── loginSupport.js           # Login test helper functions
         ├── registrationSupport.js    # Registration test helpers
         ├── contactUsSupport.js       # Contact form test helpers
-        └── addToCartSupport.js       # Shopping cart test helpers
+        ├── addToCartSupport.js       # Shopping cart test helpers
+        └── POM/                      # Page Object Model classes
+            ├── contactUsPom.js       # Contact form page object
+            ├── loginPom.js           # Login page object
+            ├── registrationPom.js    # Registration page object
+            └── addToCartPom.js       # Shopping cart page object
 ```
 
 ---
@@ -96,6 +101,42 @@ SW-Testing-Cypress/
 - **Feature-Specific Support Files**: Organized helper functions per feature
 - **DRY Principle**: Eliminates code duplication across tests
 - **Centralized Test Data**: Single source of truth in `fixtures/example.json`
+- **Page Object Model (POM)**: Encapsulates page-specific interactions and locators
+
+### 📄 Page Object Model (POM) Pattern
+Implements the **Page Object Model** design pattern to improve test maintainability and reusability:
+- **Separation of Concerns**: Page interactions separated from test logic
+- **Element Locator Centralization**: All selectors stored in POM classes
+- **Chainable Methods**: Clean, readable test code with focused POM methods
+- **Reduced Maintenance**: Changes to page structure only require POM updates
+
+**Example POM Structure:**
+```javascript
+class LoginPage {
+    navigateToLogin() {
+        cy.visit(data.loginUrl)
+    }
+    
+    fillLoginForm(username, password) {
+        cy.email().type(username)
+        cy.password().type(password)
+    }
+    
+    submitForm() {
+        cy.loginButton().click()
+    }
+}
+```
+
+**Usage in Tests:**
+```javascript
+const loginPage = new LoginPage()
+loginPage.navigateToLogin()
+loginPage.fillLoginForm("user@example.com", "password123")
+loginPage.submitForm()
+```
+
+**POM Files Location:** `cypress/support/POM/`
 
 ---
 

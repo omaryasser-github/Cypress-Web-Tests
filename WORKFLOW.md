@@ -25,7 +25,12 @@ cypress/
     ├── loginSupport.js           # Login-specific helper functions
     ├── registrationSupport.js    # Registration-specific helpers
     ├── contactUsSupport.js       # Contact form helper functions
-    └── addToCartSupport.js       # Shopping cart helper functions
+    ├── addToCartSupport.js       # Shopping cart helper functions
+    └── POM/                      # Page Object Model classes
+        ├── contactUsPom.js       # Contact form page object
+        ├── loginPom.js           # Login page object
+        ├── registrationPom.js    # Registration page object
+        └── addToCartPom.js       # Shopping cart page object
 ```
 
 ---
@@ -62,11 +67,69 @@ cypress/
 - ✅ Modular command organization
 - ✅ DRY (Don't Repeat Yourself) principle implementation
 
-### 6. **Test Data Management**
+### 6. **Page Object Model (POM) Pattern**
+- ✅ Centralized page-specific element locators
+- ✅ Encapsulated page interactions and methods
+- ✅ Improved test readability and maintainability
+- ✅ Reduced code duplication across test files
+- ✅ POM classes for each feature: Contact, Login, Registration, Shopping Cart
+
+### 7. **Test Data Management**
 - ✅ Centralized test data in `example.json` fixture
 - ✅ Global data access within tests
 - ✅ Before hooks for data initialization
 - ✅ Test URLs and expected titles configuration
+
+---
+
+## 🏛️ Page Object Model (POM) Implementation
+
+The project implements the **Page Object Model** design pattern to enhance maintainability, readability, and reusability of test code.
+
+### POM Structure
+Each feature has a corresponding POM class that encapsulates:
+- **Page Navigation**: Methods to navigate to specific pages
+- **Element Interactions**: Methods for interacting with form fields and buttons
+- **Form Operations**: Methods combining multiple interactions for common workflows
+
+### Example: ContactUsPom Class
+```javascript
+class ContactUsPom {
+    // Navigation
+    contactUsNav() {
+        cy.visit(data.contactusURL)
+        cy.title().should('eq', data.contactTitle)
+    }
+    
+    // Form interactions
+    personalInfo() {
+        cy.firstName().type(data.firstName)
+        cy.lastName().type(data.lastName)
+    }
+    
+    // Complete form submission
+    validContactUsInpute() {
+        cy.email().type(data.email)
+        cy.message().type(data.message)
+        cy.subjectDrop().select(data.subject)
+    }
+}
+```
+
+### Benefits of POM Pattern
+1. **Centralized Locators**: All element selectors in one place - easier to maintain
+2. **Readable Tests**: POM method names make test intent clear
+3. **Reduced Duplication**: Common page interactions reused across tests
+4. **Easier Refactoring**: Page changes only require POM updates, not test changes
+5. **Better Organization**: Clear separation between page logic and test logic
+
+### POM Files
+| POM File | Purpose | Location |
+|----------|---------|----------|
+| `ContactUsPom` | Contact form interactions | `cypress/support/POM/contactUsPom.js` |
+| `LoginPom` | Login page interactions | `cypress/support/POM/loginPom.js` |
+| `RegistrationPom` | Registration form interactions | `cypress/support/POM/registrationPom.js` |
+| `AddToCartPom` | Shopping cart interactions | `cypress/support/POM/addToCartPom.js` |
 
 ---
 
