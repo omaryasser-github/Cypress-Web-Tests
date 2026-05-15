@@ -1,11 +1,11 @@
-import enviroment from "../POM/environment"
-import items from "../POM/items"
+import Environment from "../pom/environment"
+import Items from "../POM/items"
 
-const env = new enviroment()
-const browse = new items()
+const env = new Environment()
+const browse = new Items()
 
 
-describe("BDD Test Suite",  () => {
+describe("BDD Test Suite", () => {
 
     it("1- Add product to cart", function () {
         env.dev()
