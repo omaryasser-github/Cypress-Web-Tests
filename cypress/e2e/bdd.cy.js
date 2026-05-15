@@ -1,8 +1,8 @@
-import enviroment from ""
-import items from ""
+import enviroment from "../POM/environment"
+import items from "../POM/items"
 
 const env = new enviroment()
-const item = new items()
+const browse = new items()
 
 
 describe("BDD Test Suite",  () => {
