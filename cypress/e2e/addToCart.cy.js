@@ -1,4 +1,4 @@
-import AddToCartPom from "../support/POM/addToCartPom"
+import AddToCartPom from "../support/pom/addToCartPom"
 
 const cart = new AddToCartPom()
 

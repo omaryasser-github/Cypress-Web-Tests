@@ -1,5 +1,5 @@
 import Environment from "../pom/environment"
-import Items from "../POM/items"
+import Items from "../pom/items"
 
 const env = new Environment()
 const browse = new Items()

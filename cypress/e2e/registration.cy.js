@@ -1,8 +1,8 @@
-import RegistrationPom from "../support/POM/registrationPom"
+import RegistrationPom from "../support/pom/registrationPom"
 
 const registration = new RegistrationPom()
 
-    describe("Registration test", () => {
+describe("Registration test", () => {
     before(function () {
         cy.fixture("example").then(function (data) {
             globalThis.data = data
@@ -63,11 +63,11 @@ const registration = new RegistrationPom()
     })
 
     it("8- invalid registration (future date of birth)", function () {
-    registration.fillPersonalInfo(data.firstName, data.lastName, data.futureDob)
-    registration.fillAddressInfo(data.street, data.city, data.postalCode, data.state, data.country)
-    registration.fillContactInfo(data.phone, `test_${Date.now()}@gmail.com`, data.password)
-    registration.submitRegistrationForm()
-})
+        registration.fillPersonalInfo(data.firstName, data.lastName, data.futureDob)
+        registration.fillAddressInfo(data.street, data.city, data.postalCode, data.state, data.country)
+        registration.fillContactInfo(data.phone, `test_${Date.now()}@gmail.com`, data.password)
+        registration.submitRegistrationForm()
+    })
 
 
 

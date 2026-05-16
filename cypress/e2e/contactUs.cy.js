@@ -1,4 +1,4 @@
-import ContactUsPom from "../support/POM/contactUsPom"
+import ContactUsPom from "../support/pom/contactUsPom"
 
 const contactUs = new ContactUsPom()
 
@@ -93,7 +93,7 @@ describe("Contact us", () => {
         contactUs.personalInfo()
         // cy.firstName().type(data.firstName)
         // cy.lastName().type(data.lastName)
-        contactUs.validContactUsInpute()    
+        contactUs.validContactUsInpute()
         // cy.email().type(data.email)
         // cy.subjectDrop().select(data.subject)
         // cy.message().type(data.longMessage)
