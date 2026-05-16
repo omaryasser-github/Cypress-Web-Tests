@@ -20,7 +20,6 @@ jobs:
           browser: chrome
           build: npm run build
         env:
-          # If your app needs a base URL, pass it here or in secrets
           # CYPRESS_BASE_URL: ${{ secrets.CYPRESS_BASE_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
